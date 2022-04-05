@@ -36,9 +36,15 @@ function computerPlay (){
     } else return "rock";
 }
 
+function selectionFilter(selection){
+    if (selection.toLowerCase() === "rock" || selection.toLowerCase() === "paper" || selection.toLowerCase() === "scissors") {
+        return selection.toLowerCase();
+    } else return undefined;
+}
 
 function playRound (playerSelection, computerSelection){
     computerSelection = computerPlay();
+    playerSelection = selectionFilter(playerSelection);
     if (playerSelection === undefined){
         return "Please choose rock, paper or scissors."
     }else if (computerSelection === playerSelection) {
